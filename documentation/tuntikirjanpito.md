@@ -9,4 +9,6 @@
 | 18.9. | 0.5  | Kirjautumisrouterin lisäys |
 | 19.9. | 0.5  | Käynnistysskriptin korjaus |
 | 19.9. | 1.5  | Google Calendar apiin tutustuminen |
-| yht   | 7.5  | | 
+| 24.9. | 1  | Koko projektin siirto uuteen create-react-app:llä luotuun projektiin (aiemmat commitit hävisivät historiasta) |
+| 24.9. | 3  | Toteutus: Henkilökohtaisen kalenterin automaattinen luominen uudelle käyttäjälle |
+| yht   | 11.5  | | 
