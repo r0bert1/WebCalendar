@@ -1,34 +1,41 @@
-﻿import React, { useState } from "react"
-import loginService from './services/login'
+﻿/* global gapi */
+import React, { useState, useEffect } from "react"
 
 const App = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [events, setEvents] = useState([])
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    const user = await loginService.login({
-      username: username,
-      password: password
-    })
-    console.log(user)
+  const getEvents = () => {
+    function start() {
+      gapi.client.init({
+        'apiKey': 'API_KEY'
+      }).then(function() {
+        return gapi.client.request({
+          'path': 'https://www.googleapis.com/calendar/v3/calendars/CALENDAR_ID/events',
+        })
+      }).then( (response) => {
+        let events = response.result.items
+        console.log(events)
+        setEvents(events)
+      }, function(reason) {
+        console.log(reason);
+      });
+    }
+    gapi.load('client', start)
   }
+
+  useEffect(() => {
+    getEvents()
+  }, [])
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        Username:
-        <input
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        Password:
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button type="submit">submit</button>
-      </form>
+      <ul>
+        {events.map((event) =>
+          <li key={event.id}>
+            {event.summary}
+          </li>
+        )}
+      </ul>
     </div>
   )
 }
