@@ -11,4 +11,5 @@
 | 19.9. | 1.5  | Google Calendar apiin tutustuminen |
 | 24.9. | 1  | Koko projektin siirto uuteen create-react-app:llä luotuun projektiin (aiemmat commitit hävisivät historiasta) |
 | 24.9. | 3  | Toteutus: Henkilökohtaisen kalenterin automaattinen luominen uudelle käyttäjälle |
-| yht   | 11.5  | | 
+| 24.9. | 1  | Kalenterin id:n lisäys käyttäjä-olioon |
+| yht   | 12.5  | | 
