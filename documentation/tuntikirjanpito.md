@@ -12,4 +12,5 @@
 | 24.9. | 1  | Koko projektin siirto uuteen create-react-app:llä luotuun projektiin (aiemmat commitit hävisivät historiasta) |
 | 24.9. | 3  | Toteutus: Henkilökohtaisen kalenterin automaattinen luominen uudelle käyttäjälle |
 | 24.9. | 1  | Kalenterin id:n lisäys käyttäjä-olioon |
-| yht   | 12.5  | | 
+| 25.9. | 3  | Google api clientin opettelu ja käyttöönotto |
+| yht   | 15.5  | | 
