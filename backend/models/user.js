@@ -8,7 +8,11 @@ const userSchema = mongoose.Schema({
     minlength: 3,
     present: true
   },
-  passwordHash: String
+  passwordHash: String,
+  calendarId: {
+    type: String,
+    unique: true
+  }
 })
 
 userSchema.plugin(uniqueValidator)

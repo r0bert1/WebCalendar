@@ -24,13 +24,6 @@ usersRouter.post('/', async (request, response, next) => {
     const saltRounds = 10
     const passwordHash = await bcrypt.hash(password, saltRounds)
 
-    const user = new User({
-      username,
-      passwordHash
-    })
-
-    const savedUser = await user.save()
-
     // If modifying these scopes, delete token.json.
     const SCOPES = [
       'https://www.googleapis.com/auth/calendar',
@@ -45,10 +38,10 @@ usersRouter.post('/', async (request, response, next) => {
 
     // Load client secrets from a local file.
     fs.readFile('credentials.json', (err, content) => {
-      if (err) return console.log('Error loading client secret file:', err);
+      if (err) return console.log('Error loading client secret file:', err)
       // Authorize a client with credentials, then call the Google Calendar API.
-      authorize(JSON.parse(content), listEvents);
-    });
+      authorize(JSON.parse(content), createCalendar)
+    })
 
     /**
      * Create an OAuth2 client with the given credentials, and then execute the
@@ -104,17 +97,23 @@ usersRouter.post('/', async (request, response, next) => {
      * Lists the next 10 events on the user's primary calendar.
      * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
      */
-    function listEvents(auth) {
-      const calendar = google.calendar({version: 'v3', auth});
+    function createCalendar(auth) {
+      const calendar = google.calendar({version: 'v3', auth})
       calendar.calendars.insert({
         requestBody: {
           summary: username
         }
-      }, (err, res) => {
+      }, async (err, res) => {
         if (err) return console.log('The API returned an error: ' + err)
         const calendar = res.data
-        console.log(calendar)
         if (calendar) {
+          const calendarId = calendar.id
+          const user = new User({
+            username,
+            passwordHash,
+            calendarId
+          })
+          await user.save()
           response.json(calendar)
         } else {
           console.log('No calendar created')
