@@ -13,4 +13,5 @@
 | 24.9. | 3  | Toteutus: Henkilökohtaisen kalenterin automaattinen luominen uudelle käyttäjälle |
 | 24.9. | 1  | Kalenterin id:n lisäys käyttäjä-olioon |
 | 25.9. | 3  | Google api clientin opettelu ja käyttöönotto |
-| yht   | 15.5  | | 
+| 25.9. | 1  | Refaktorointia |
+| yht   | 16.5  | | 
