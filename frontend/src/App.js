@@ -1,10 +1,12 @@
 ﻿/* global gapi */
 import React, { useState, useEffect } from "react"
+import loginService from './services/login'
 
 const App = () => {
-  const [events, setEvents] = useState([])
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  const handleClientLoad = async () => {
+  const handleClientLoad = () => {
     const initClient = async () => {
       try {
         await gapi.client.init({
@@ -29,8 +31,8 @@ const App = () => {
     const updateSigninStatus = (isSignedIn) => {
       if (isSignedIn) {
         console.log('you are signed in')
-        //listUpcomingEvents()
-        createCalendar()
+        listUpcomingEvents()
+        //createCalendar()
       } else {
         console.log('you are signed out')
       }
@@ -76,15 +78,34 @@ const App = () => {
     handleClientLoad()
   }, [])
 
+  const handleSubmit = async (event) => {
+    const user = await loginService.login({
+      username,
+      password
+    })
+    console.log(user)
+    event.preventDefault()
+  }
+
   return (
     <div>
-      <ul>
-        {events.map((event) =>
-          <li key={event.id}>
-            {event.summary}
-          </li>
-        )}
-      </ul>
+      <form onSubmit={handleSubmit}>
+        Username:
+        <input
+          type="text"
+          value={username} 
+          onChange={(event) => setUsername(event.target.value)} 
+        />
+        <br />
+        Password:
+        <input
+          type="password"
+          value={password} 
+          onChange={(event) => setPassword(event.target.value)} 
+        />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   )
 }
