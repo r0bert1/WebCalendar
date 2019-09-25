@@ -14,4 +14,5 @@
 | 24.9. | 1  | Kalenterin id:n lisäys käyttäjä-olioon |
 | 25.9. | 3  | Google api clientin opettelu ja käyttöönotto |
 | 25.9. | 1  | Refaktorointia |
-| yht   | 16.5  | | 
+| 25.9. | 0.5  | Kirjautumislomakkeen lisääminen |
+| yht   | 17  | | 
