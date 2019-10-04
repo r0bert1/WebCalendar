@@ -15,4 +15,5 @@
 | 25.9. | 3  | Google api clientin opettelu ja käyttöönotto |
 | 25.9. | 1  | Refaktorointia |
 | 25.9. | 0.5  | Kirjautumislomakkeen lisääminen |
+| 4.10. | 1  | fullCalendariin tutustuminen ja käyttöönotto |
 | yht   | 17  | | 
