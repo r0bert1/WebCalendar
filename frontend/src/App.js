@@ -1,17 +1,16 @@
 ﻿/* global gapi */
-import React, { useState, useEffect } from "react"
-import loginService from './services/login'
+import React, { useEffect } from "react"
+import Calendar from './components/Calendar'
+import LoginForm from './components/LoginForm'
+
 
 const App = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
   const handleClientLoad = () => {
     const initClient = async () => {
       try {
         await gapi.client.init({
-          apiKey: 'API_KEY',
-          clientId: 'CLIENT_ID',
+          apiKey: '',
+          clientId: '',
           discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
           scope: 'https://www.googleapis.com/auth/calendar'
         })
@@ -31,7 +30,7 @@ const App = () => {
     const updateSigninStatus = (isSignedIn) => {
       if (isSignedIn) {
         console.log('you are signed in')
-        listUpcomingEvents()
+        //listUpcomingEvents()
         //createCalendar()
       } else {
         console.log('you are signed out')
@@ -74,38 +73,14 @@ const App = () => {
     gapi.load('client:auth2', initClient)
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     handleClientLoad()
-  }, [])
-
-  const handleSubmit = async (event) => {
-    const user = await loginService.login({
-      username,
-      password
-    })
-    console.log(user)
-    event.preventDefault()
-  }
+  }, [])*/
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        Username:
-        <input
-          type="text"
-          value={username} 
-          onChange={(event) => setUsername(event.target.value)} 
-        />
-        <br />
-        Password:
-        <input
-          type="password"
-          value={password} 
-          onChange={(event) => setPassword(event.target.value)} 
-        />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
+      <LoginForm />
+      <Calendar />
     </div>
   )
 }
