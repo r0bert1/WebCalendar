@@ -16,4 +16,5 @@
 | 25.9. | 1  | Refaktorointia |
 | 25.9. | 0.5  | Kirjautumislomakkeen lisääminen |
 | 4.10. | 1  | fullCalendariin tutustuminen ja käyttöönotto |
-| yht   | 17  | | 
+| 7.10. | 3  | Google service accounteihin tutustuminen ja niiden avulla auktorisoinnin toteuttaminen |
+| yht   | 21  | | 
