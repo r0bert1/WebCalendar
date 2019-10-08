@@ -28,3 +28,4 @@ yarn-error.log*
 # api credentials
 /credentials.json
 /token.json
+/service_account_key.json

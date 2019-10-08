@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
+const key = require('./service_account_key.json')
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
@@ -33,11 +34,9 @@ function authorize(credentials, callback) {
     oAuth2Client.setCredentials(JSON.parse(token));
     callback(oAuth2Client);
   });*/
-  const email = "";
-  const key = "";
 
   const jwt = new google.auth.JWT(
-    email, null, key, SCOPES
+    key.client_email, null, key.private_key, SCOPES
   );
 
   jwt.authorize((err, data) => {
@@ -88,7 +87,34 @@ function getAccessToken(oAuth2Client, callback) {
  */
 function listEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
-  calendar.events.list({
+  const calendarId = '';
+
+  //Returns metadata for a calendar.
+  /*calendar.calendars.get({calendarId : calendarId}
+      , function (err, resp) {
+          if (err) {
+              console.log(err);
+          } else {
+              console.log(resp.data);
+          }
+      })*/
+  /*calendar.calendars.insert({requestBody : { summary : "test2"}},
+      function (err, res) {
+         if(err) {
+             console.log(err);
+         } else {
+             console.log(res);
+         }
+      })*/
+  calendar.calendarList.list({}, (err, res) => {
+    if (err) return console.log('The API returned an error: ' + err);
+    const calendars = res.data.items
+    //console.log(calendars)
+    calendars.forEach((calendar) => {
+      console.log(calendar.id)
+    })
+  })
+  /*calendar.events.list({
     calendarId: 'primary',
     timeMin: (new Date()).toISOString(),
     maxResults: 10,
@@ -106,5 +132,5 @@ function listEvents(auth) {
     } else {
       console.log('No upcoming events found.');
     }
-  });
+  });*/
 }
