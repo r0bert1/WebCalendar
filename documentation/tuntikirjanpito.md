@@ -18,4 +18,5 @@
 | 4.10. | 1  | fullCalendariin tutustuminen ja käyttöönotto |
 | 7.10. | 3  | Google service accounteihin tutustuminen ja niiden avulla auktorisoinnin toteuttaminen |
 | 8.10. | 2  | Lisää service accounteihin perehtymistä |
-| yht   | 23  | | 
+| 8.10. | 2  | Backendin refaktorointia |
+| yht   | 25  | | 
