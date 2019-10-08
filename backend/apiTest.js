@@ -8,7 +8,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = 'token.json';
+//const TOKEN_PATH = 'token.json';
 
 // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
@@ -56,7 +56,7 @@ function authorize(credentials, callback) {
  * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
  * @param {getEventsCallback} callback The callback for the authorized client.
  */
-function getAccessToken(oAuth2Client, callback) {
+/*function getAccessToken(oAuth2Client, callback) {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES,
@@ -79,7 +79,7 @@ function getAccessToken(oAuth2Client, callback) {
       callback(oAuth2Client);
     });
   });
-}
+}*/
 
 /**
  * Lists the next 10 events on the user's primary calendar.
