@@ -2,7 +2,10 @@ var {google} = require('googleapis');
 
 var key = require('../service_account_key.json');
 
-const SCOPES = 'https://www.googleapis.com/auth/calendar';
+const SCOPES = [
+  'https://www.googleapis.com/auth/calendar',
+  'https://www.googleapis.com/auth/calendar.events'
+]
 
 var auth = new google.auth.JWT(
     key.client_email,

@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const { errorHandler } = require('./utils/middleware')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+const eventsRouter = require('./controllers/events')
 
 mongoose.set('useUnifiedTopology', true)
 mongoose.set('useCreateIndex', true)
@@ -28,6 +29,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+app.use('/api/events', eventsRouter)
 
 app.use(errorHandler)
 
