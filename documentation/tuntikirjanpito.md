@@ -19,4 +19,5 @@
 | 7.10. | 3  | Google service accounteihin tutustuminen ja niiden avulla auktorisoinnin toteuttaminen |
 | 8.10. | 2  | Lisää service accounteihin perehtymistä |
 | 8.10. | 2  | Backendin refaktorointia |
+| 14.10. | 2  | Calendar apin käyttöön liittyviä korjauksia sekä tapahtumarouterin toteutus |
 | yht   | 25  | | 
