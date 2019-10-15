@@ -1,7 +1,7 @@
 import React, { useState  } from 'react'
 import loginService from '../services/login'
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -12,6 +12,7 @@ const LoginForm = () => {
       password
     })
     console.log(user)
+    props.setUser(user)
   }
 
   return (

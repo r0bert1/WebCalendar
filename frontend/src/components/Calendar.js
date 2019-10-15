@@ -4,9 +4,21 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 
 import '../calendar.scss'
 
-const Calendar = () => {
+const Calendar = (props) => {
+  if (props.user) {
+    return (
+      <FullCalendar 
+        defaultView="dayGridMonth" 
+        plugins={[ dayGridPlugin ]}
+        events={props.user.events} 
+      />
+    )
+  }
   return (
-    <FullCalendar defaultView="dayGridMonth" plugins={[ dayGridPlugin ]} />
+    <FullCalendar 
+      defaultView="dayGridMonth" 
+      plugins={[ dayGridPlugin ]} 
+    />
   )
 }
 

@@ -25,8 +25,17 @@ loginRouter.post('/', async (request, response) => {
     orderBy: 'startTime',
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err)
-    const events = res.data.items
-    if (events.length) {
+    const eventsData = res.data.items
+    if (eventsData.length) {
+      const events = eventsData.map(event => {
+        return (
+          { 
+            title: event.summary, 
+            start: event.start.dateTime, 
+            end: event.start.dateTime 
+          }
+        )
+      })
       response
         .status(200)
         .send({ username: user.username, calendarId: user.calendarId, events })
