@@ -1,19 +1,23 @@
 import React from 'react'
-import Popup from 'reactjs-popup'
+import { Modal, Button } from 'react-bootstrap'
 
 const EventForm = (props) => {
   return (
-    <Popup 
-      open={props.visible}
-      modal
-      position='center center'
-      closeOnDocumentClick
-      onClose={() => props.setVisible(false)}
-    >
-      <span>
-        Hello
-      </span>
-    </Popup>
+    <Modal show={props.visible} onHide={() => props.setVisible(false)}>
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>Create event</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p>Create event here.</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+    </Modal>
   )
 }
 

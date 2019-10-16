@@ -22,4 +22,5 @@
 | 14.10. | 2  | Calendar apin käyttöön liittyviä korjauksia sekä tapahtumarouterin toteutus |
 | 15.10. | 1  | Käyttäjän tapahtumien näyttäminen kirjautumisen jälkeen toteutus |
 | 16.10. | 2  | Popup ikkunan näyttäminen päivää klikatessa ja käyttäjän tallentaminen localstorageen |
-| yht   | 30  | | 
+| 16.10. | 1.5  | Bootstrapin käyttöönotto |
+| yht   | 31.5  | | 
