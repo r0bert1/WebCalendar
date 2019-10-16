@@ -21,4 +21,5 @@
 | 8.10. | 2  | Backendin refaktorointia |
 | 14.10. | 2  | Calendar apin käyttöön liittyviä korjauksia sekä tapahtumarouterin toteutus |
 | 15.10. | 1  | Käyttäjän tapahtumien näyttäminen kirjautumisen jälkeen toteutus |
-| yht   | 28  | | 
+| 16.10. | 2  | Popup ikkunan näyttäminen päivää klikatessa ja käyttäjän tallentaminen localstorageen |
+| yht   | 30  | | 
