@@ -10,7 +10,15 @@ const EventForm = (props) => {
         </Modal.Header>
 
         <Modal.Body>
-          <p>Create event here.</p>
+          <form>
+            Title:
+            <input
+              type='text'
+            />
+            <br />
+            <br />
+            <input type='submit' value='Save' />
+          </form>
         </Modal.Body>
 
         <Modal.Footer>

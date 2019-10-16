@@ -18,7 +18,7 @@ const Calendar = (props) => {
         defaultView="dayGridMonth" 
         plugins={[ dayGridPlugin, interactionPlugin, bootstrapPlugin ]}
         themeSystem='bootstrap'
-        events={props.user.events}   
+        events={props.user.events}
       />
     )
   }
