@@ -1,24 +1,27 @@
 import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from '@fullcalendar/interaction'
 
 import '../calendar.scss'
 
 const Calendar = (props) => {
+  const handleDateClick = (arg) => {
+    props.showPopup(true)
+  }
+
   if (props.user) {
     return (
-      <FullCalendar 
+      <FullCalendar
+        dateClick={handleDateClick}
         defaultView="dayGridMonth" 
-        plugins={[ dayGridPlugin ]}
-        events={props.user.events} 
+        plugins={[ dayGridPlugin, interactionPlugin ]}
+        events={props.user.events}   
       />
     )
   }
   return (
-    <FullCalendar 
-      defaultView="dayGridMonth" 
-      plugins={[ dayGridPlugin ]} 
-    />
+    <div></div>
   )
 }
 

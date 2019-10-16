@@ -12,6 +12,7 @@ const LoginForm = (props) => {
       password
     })
     console.log(user)
+    window.localStorage.setItem('user', JSON.stringify(user))
     props.setUser(user)
   }
 
@@ -34,6 +35,9 @@ const LoginForm = (props) => {
         <br />
         <input type='submit' value='Submit' />
       </form>
+      <div>
+        {props.user && <p>logged in as {props.user.username}</p>}
+      </div>
     </div>
   )
 }
