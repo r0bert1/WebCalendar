@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import DateTime from 'react-datetime'
+import DateTimePicker from 'react-datetime-picker'
 
 import './react-datetime.css'
 
 const EventForm = (props) => {
+  const [start, setStart] = useState(new Date())
+  const [end, setEnd] = useState(new Date())
+
+
   return (
     <Modal show={props.visible} onHide={() => props.setVisible(false)}>
       <Modal.Dialog>
@@ -19,7 +23,11 @@ const EventForm = (props) => {
               type='text'
             />
             <br />
-            <DateTime />
+            Start:
+            <DateTimePicker onChange={(date) => setStart( date )} value={start}/>
+            <br />
+            End:
+            <DateTimePicker onChange={(date) => setEnd( date )} value={end}/>
             <br />
             <input type='submit' value='Save' />
           </form>
