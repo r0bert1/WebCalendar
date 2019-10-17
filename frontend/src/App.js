@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div>
-      <EventForm visible={popup} setVisible={setPopup} />
+      <EventForm visible={popup} setVisible={setPopup} user={user} setUser={setUser} />
       <LoginForm user={user} setUser={setUser} />
       <Calendar user={user} showPopup={setPopup} />
     </div>

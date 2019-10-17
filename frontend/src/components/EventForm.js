@@ -1,16 +1,26 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
-
-import './react-datetime.css'
+import eventService from '../services/events'
 
 const EventForm = (props) => {
+  const [title, setTitle] = useState('')
   const [start, setStart] = useState(new Date())
   const [end, setEnd] = useState(new Date())
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(event.target.title.value)
+    const newEvent = await eventService.create({
+      title,
+      start,
+      end,
+      user: { username: props.user.username }
+    })
+    console.log(newEvent)
+    const newEvents = props.user.events.concat(newEvent)
+    const newUser = {...props.user, events: newEvents}
+    props.setUser(newUser)
+    props.setVisible(false)
   }
 
   return (
@@ -23,16 +33,13 @@ const EventForm = (props) => {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             Title:
-            <input
-              name='title'
-              type='text'
-            />
+            <input type='text' onChange={(event) => setTitle(event.target.value)} value={title} />
             <br />
             Start:
-            <DateTimePicker onChange={(date) => setStart( date )} value={start}/>
+            <DateTimePicker onChange={(date) => setStart( date )} value={start} />
             <br />
             End:
-            <DateTimePicker onChange={(date) => setEnd( date )} value={end}/>
+            <DateTimePicker onChange={(date) => setEnd( date )} value={end} />
             <br />
             <button type="submit">save</button>
           </form>

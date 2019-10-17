@@ -4,42 +4,30 @@ const moment = require('moment')
 const User = require('../models/user')
 
 eventsRouter.post('/', async (request, response) => {
-  const time = request.body.time
-  const user = await User.findOne({ username: request.body.user.username })
-
-  const startDateTime = moment(new Date(
-    time.start.year,
-    time.start.month,
-    time.start.day,
-    time.start.hours,
-    time.start.minutes
-  )).format()
-
-  const endDateTime = moment(new Date(
-    time.end.year,
-    time.end.month,
-    time.end.day,
-    time.end.hours,
-    time.end.minutes
-  )).format()
+  const body = request.body
+  const title = body.title
+  const startDateTime = moment(body.start).format()
+  const endDateTime = moment(body.end).format()
+  const user = await User.findOne({ username: body.user.username })
 
   const event = {
-    summary: 'test',
+    summary: title,
     start: { dateTime: startDateTime },
     end: { dateTime: endDateTime }
   }
-
-  console.log(startDateTime)
-  console.log(endDateTime)
 
   api.events.insert({
     calendarId: user.calendarId,
     resource: event
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err)
-    response
-      .status(200)
-      .send({ username: user.username, calendarId: user.calendarId, event })
+    const event = res.data
+    console.log(event)
+    if (event) {
+      response
+        .status(200)
+        .send({ event })
+    }
   })
 })
 
