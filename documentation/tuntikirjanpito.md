@@ -25,4 +25,5 @@
 | 16.10. | 1.5  | Bootstrapin käyttöönotto |
 | 17.10. | 0.5  | Päivämäärän ja ajan valitsijan lisäys tapahtuman lisäyksen yhteyteen  |
 | 17.10. | 1  | Parannuksia päivämäärän ja ajan lisäykseen |
-| yht   | 33  | | 
+| 17.10. | 2  | Uuden tapahtuman lisäys kalenterinäkymään |
+| yht   | 35  | | 
