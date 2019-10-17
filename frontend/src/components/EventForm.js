@@ -1,5 +1,8 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import DateTime from 'react-datetime'
+
+import './react-datetime.css'
 
 const EventForm = (props) => {
   return (
@@ -16,6 +19,7 @@ const EventForm = (props) => {
               type='text'
             />
             <br />
+            <DateTime />
             <br />
             <input type='submit' value='Save' />
           </form>

@@ -23,4 +23,5 @@
 | 15.10. | 1  | Käyttäjän tapahtumien näyttäminen kirjautumisen jälkeen toteutus |
 | 16.10. | 2  | Popup ikkunan näyttäminen päivää klikatessa ja käyttäjän tallentaminen localstorageen |
 | 16.10. | 1.5  | Bootstrapin käyttöönotto |
-| yht   | 31.5  | | 
+| 17.10. | 0.5  | Päivämäärän ja ajan valitsijan lisäys tapahtuman lisäyksen yhteyteen  |
+| yht   | 32  | | 
