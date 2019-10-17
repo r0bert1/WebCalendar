@@ -8,6 +8,10 @@ const EventForm = (props) => {
   const [start, setStart] = useState(new Date())
   const [end, setEnd] = useState(new Date())
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(event.target.title.value)
+  }
 
   return (
     <Modal show={props.visible} onHide={() => props.setVisible(false)}>
@@ -17,9 +21,10 @@ const EventForm = (props) => {
         </Modal.Header>
 
         <Modal.Body>
-          <form>
+          <form onSubmit={handleSubmit}>
             Title:
             <input
+              name='title'
               type='text'
             />
             <br />
@@ -29,7 +34,7 @@ const EventForm = (props) => {
             End:
             <DateTimePicker onChange={(date) => setEnd( date )} value={end}/>
             <br />
-            <input type='submit' value='Save' />
+            <button type="submit">save</button>
           </form>
         </Modal.Body>
 
