@@ -11,7 +11,6 @@ const LoginForm = (props) => {
       username,
       password
     })
-    console.log(user)
     window.localStorage.setItem('user', JSON.stringify(user))
     props.setUser(user)
   }

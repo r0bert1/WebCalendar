@@ -10,16 +10,14 @@ const EventForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const newEvent = await eventService.create({
+    await eventService.create({
       title,
       start,
       end,
       user: { username: props.user.username }
     })
-    console.log(newEvent)
-    const newEvents = props.user.events.concat(newEvent)
-    const newUser = {...props.user, events: newEvents}
-    props.setUser(newUser)
+    const newEvents = await eventService.getUserEvents(props.user.calendarId)
+    props.setEvents(newEvents)
     props.setVisible(false)
   }
 
