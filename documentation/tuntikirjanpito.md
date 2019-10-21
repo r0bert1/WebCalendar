@@ -26,4 +26,5 @@
 | 17.10. | 0.5  | Päivämäärän ja ajan valitsijan lisäys tapahtuman lisäyksen yhteyteen  |
 | 17.10. | 1  | Parannuksia päivämäärän ja ajan lisäykseen |
 | 17.10. | 2  | Uuden tapahtuman lisäys kalenterinäkymään |
-| yht   | 35  | | 
+| 21.10. | 1  | Käyttäjän tapahtumien eriyttäminen käyttäjä-muuttujasta |
+| yht   | 36  | | 
