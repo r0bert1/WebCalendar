@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Form } from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
 import eventService from '../services/events'
 
@@ -29,23 +29,31 @@ const EventForm = (props) => {
         </Modal.Header>
 
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
-            Title:
-            <input type='text' onChange={(event) => setTitle(event.target.value)} value={title} />
-            <br />
-            Start:
-            <DateTimePicker onChange={(date) => setStart( date )} value={start} />
-            <br />
-            End:
-            <DateTimePicker onChange={(date) => setEnd( date )} value={end} />
-            <br />
-            <button type="submit">save</button>
-          </form>
-        </Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter title'
+                value={title} 
+                onChange={(event) => setTitle(event.target.value)}
+              />
+            </Form.Group>
 
-        <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-        </Modal.Footer>
+            <Form.Group>
+              <Form.Label>Start</Form.Label>
+              <DateTimePicker onChange={(date) => setStart( date )} value={start} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>End</Form.Label>
+              <DateTimePicker onChange={(date) => setEnd( date )} value={end} />
+            </Form.Group>
+            <Button variant='primary' type='submit'>
+              Save
+            </Button>
+          </Form>
+        </Modal.Body>
       </Modal.Dialog>
     </Modal>
   )

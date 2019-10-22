@@ -28,4 +28,5 @@
 | 17.10. | 2  | Uuden tapahtuman lisäys kalenterinäkymään |
 | 21.10. | 1  | Käyttäjän tapahtumien eriyttäminen käyttäjä-muuttujasta |
 | 21.10. | 0.5  | Kirjautumislomakkeen muuttaminen bootstrap komponentiksi |
-| yht   | 36.5  | | 
+| 22.10. | 0.5  | Tapahtumalomakkeen muuttaminen bootstrap komponentiksi |
+| yht   | 37  | | 

@@ -16,10 +16,18 @@ const LoginForm = (props) => {
     props.setUser(user)
   }
 
+  if (props.user) {
+    return (
+      <div>
+        <p>logged in as {props.user.username}</p>
+      </div>
+    )
+  }
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control
             type='text'
@@ -29,7 +37,7 @@ const LoginForm = (props) => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group>
           <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
@@ -42,9 +50,6 @@ const LoginForm = (props) => {
           Submit
         </Button>
       </Form>
-      <div>
-        {props.user && <p>logged in as {props.user.username}</p>}
-      </div>
     </div>
   )
 }
