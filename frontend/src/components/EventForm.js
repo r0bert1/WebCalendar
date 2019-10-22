@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
-import DateTimePicker from 'react-datetime-picker'
 import eventService from '../services/events'
+import DateTime from 'react-datetime'
+
+import './react-datetime.css'
 
 const EventForm = (props) => {
   const [title, setTitle] = useState('')
@@ -42,12 +44,12 @@ const EventForm = (props) => {
 
             <Form.Group>
               <Form.Label>Start</Form.Label>
-              <DateTimePicker onChange={(date) => setStart( date )} value={start} />
+              <DateTime onChange={(date) => setStart( date._d )} value={start} />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>End</Form.Label>
-              <DateTimePicker onChange={(date) => setEnd( date )} value={end} />
+              <DateTime onChange={(date) => setEnd( date._d )} value={end} />
             </Form.Group>
             <Button variant='primary' type='submit'>
               Save
