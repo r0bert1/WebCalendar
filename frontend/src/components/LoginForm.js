@@ -6,7 +6,7 @@ const LoginForm = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault()
     const user = await loginService.login({
       username,
@@ -17,16 +17,12 @@ const LoginForm = (props) => {
   }
 
   if (props.user) {
-    return (
-      <div>
-        <p>logged in as {props.user.username}</p>
-      </div>
-    )
+    return null
   }
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleLogin}>
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control

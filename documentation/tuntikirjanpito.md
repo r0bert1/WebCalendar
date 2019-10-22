@@ -30,4 +30,5 @@
 | 21.10. | 0.5  | Kirjautumislomakkeen muuttaminen bootstrap komponentiksi |
 | 22.10. | 0.5  | Tapahtumalomakkeen muuttaminen bootstrap komponentiksi |
 | 22.10. | 1  | Tapahtumalomakkeen ulkonäön parantelua |
-| yht   | 38  | | 
+| 22.10. | 1.5  | CSS:n ja bootstrap Navbarin lisäys |
+| yht   | 39.5  | | 

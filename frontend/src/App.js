@@ -3,6 +3,7 @@ import Calendar from './components/Calendar'
 import LoginForm from './components/LoginForm'
 import EventForm from './components/EventForm'
 import eventService from './services/events'
+import { Navbar, Container } from 'react-bootstrap'
 
 
 const App = () => {
@@ -30,6 +31,16 @@ const App = () => {
 
   return (
     <div>
+      <Navbar bg='dark' variant='dark'>
+      <Container>
+        <Navbar.Brand>Calendar</Navbar.Brand>
+        
+          {user && 
+            <Navbar.Text>
+              Signed in as: <em>{user.username}</em>
+            </Navbar.Text>}
+        </Container>
+      </Navbar>
       <EventForm visible={popup} setVisible={setPopup} user={user} setEvents={setEvents} />
       <LoginForm user={user} setUser={setUser} />
       <Calendar user={user} showPopup={setPopup} events={events} />

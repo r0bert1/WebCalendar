@@ -5,6 +5,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import bootstrapPlugin from '@fullcalendar/bootstrap'
 
 import '../calendar.scss'
+import './Calendar.css'
 
 const Calendar = (props) => {
   const handleDateClick = (arg) => {

@@ -3,14 +3,21 @@ import { Modal, Button, Form } from 'react-bootstrap'
 import eventService from '../services/events'
 import DateTime from 'react-datetime'
 
-import './react-datetime.css'
+import './Datetime.css'
 
 const EventForm = (props) => {
   const [title, setTitle] = useState('')
   const [start, setStart] = useState(new Date())
   const [end, setEnd] = useState(new Date())
 
-  const handleSubmit = async (event) => {
+  const hidePopup = () => {
+    props.setVisible(false)
+    setTitle('')
+    setStart(new Date())
+    setEnd(new Date())
+  }
+
+  const handleNewEvent = async (event) => {
     event.preventDefault()
     await eventService.create({
       title,
@@ -20,18 +27,18 @@ const EventForm = (props) => {
     })
     const newEvents = await eventService.getUserEvents(props.user.calendarId)
     props.setEvents(newEvents)
-    props.setVisible(false)
+    hidePopup()
   }
 
   return (
-    <Modal show={props.visible} onHide={() => props.setVisible(false)}>
+    <Modal size='sm' show={props.visible} onHide={hidePopup}>
       <Modal.Dialog>
         <Modal.Header closeButton>
           <Modal.Title>Create event</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleNewEvent}>
             <Form.Group>
               <Form.Label>Title</Form.Label>
               <Form.Control
