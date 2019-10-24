@@ -3,7 +3,7 @@ const api = require('../utils/calendarSetup')
 const moment = require('moment')
 const User = require('../models/user')
 
-eventsRouter.get('/:calendarId', async (request, response) => {
+eventsRouter.get('/:calendarId', (request, response) => {
   const calendarId = request.params.calendarId
 
   api.events.list({
@@ -61,7 +61,33 @@ eventsRouter.post('/', async (request, response) => {
   })
 })
 
-eventsRouter.delete('/:calendarId/:eventId', async (request, response) => {
+eventsRouter.put('/:calendarId/:eventId', (request, response) => {
+  const calendarId = request.params.calendarId
+  const eventId = request.params.eventId
+  const { title, start, end } = request.body.event
+
+  const updatedEvent = {
+    summary: title,
+    start: { dateTime: start},
+    end: { dateTime: end}
+  }
+
+  api.events.update({
+    calendarId: calendarId,
+    eventId: eventId,
+    resource: updatedEvent
+  }, (err, res) => {
+    if (err) return console.log('The API returned an error: ' + err)
+    const event = res.data
+    if (event) {
+      response
+        .status(200)
+        .send({ event })
+    }
+  })
+})
+
+eventsRouter.delete('/:calendarId/:eventId', (request, response) => {
   const calendarId = request.params.calendarId
   const eventId = request.params.eventId
 

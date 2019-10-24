@@ -32,4 +32,5 @@
 | 22.10. | 1  | Tapahtumalomakkeen ulkonäön parantelua |
 | 22.10. | 1.5  | CSS:n ja bootstrap Navbarin lisäys |
 | 24.10. | 1  | Lisää CSS |
-| yht   | 40.5  | | 
+| 24.10. | 1  | Tapahtumien poisto- ja muokkausreittien toteutus |
+| yht   | 41.5  | | 
