@@ -18,9 +18,10 @@ eventsRouter.get('/:calendarId', async (request, response) => {
       const events = eventsData.map(event => {
         return (
           { 
+            id: event.id,
             title: event.summary, 
             start: event.start.dateTime, 
-            end: event.start.dateTime 
+            end: event.start.dateTime
           }
         )
       })
@@ -57,6 +58,21 @@ eventsRouter.post('/', async (request, response) => {
         .status(200)
         .send({ event })
     }
+  })
+})
+
+eventsRouter.delete('/:calendarId/:eventId', async (request, response) => {
+  const calendarId = request.params.calendarId
+  const eventId = request.params.eventId
+
+  api.events.delete({
+    calendarId: calendarId,
+    eventId: eventId
+  }, (err, res) => {
+    if (err) return console.log('The API returned an error: ' + err)
+    response
+      .status(204)
+      .end()
   })
 })
 
