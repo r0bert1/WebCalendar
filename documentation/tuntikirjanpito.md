@@ -33,4 +33,5 @@
 | 22.10. | 1.5  | CSS:n ja bootstrap Navbarin lisäys |
 | 24.10. | 1  | Lisää CSS |
 | 24.10. | 1  | Tapahtumien poisto- ja muokkausreittien toteutus |
-| yht   | 41.5  | | 
+| 24.10. | 1.5  | Tapahtumien poisto- ja muokkausreittien rajapintojen toteutus sekä tapahtumaa klikatessa ilmestyvän muokkaus/poisto -ikkunan aloitus |
+| yht   | 43  | | 

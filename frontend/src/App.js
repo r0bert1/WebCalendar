@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const newEvents = await eventService.getUserEvents(user.calendarId)
+      const newEvents = await eventService.getAll(user.calendarId)
       setEvents(newEvents)
     }
     if (user) {

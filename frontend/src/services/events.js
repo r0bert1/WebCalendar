@@ -1,7 +1,7 @@
 import axios from 'axios'
 const baseUrl = '/api/events'
 
-const getUserEvents = async calendarId => {
+const getAll = async calendarId => {
   const response = await axios.get(`${baseUrl}/${calendarId}`)
   return response.data
 }
@@ -11,4 +11,9 @@ const create = async info => {
   return response.data
 }
 
-export default { create, getUserEvents }
+const remove = async (calendarId, eventId) => {
+  const response = await axios.delete(`${baseUrl}/${calendarId}/${eventId}`)
+  return response.data
+}
+
+export default { create, getAll, remove }
