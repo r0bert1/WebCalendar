@@ -34,4 +34,5 @@
 | 24.10. | 1  | Lisää CSS |
 | 24.10. | 1  | Tapahtumien poisto- ja muokkausreittien toteutus |
 | 24.10. | 1.5  | Tapahtumien poisto- ja muokkausreittien rajapintojen toteutus sekä tapahtumaa klikatessa ilmestyvän muokkaus/poisto -ikkunan aloitus |
-| yht   | 43  | | 
+| 25.10. | 3  | Muokkaus/poisto -ikkunan lopullinen bootstrap popover toteutus |
+| yht   | 46  | | 
