@@ -25,7 +25,7 @@ const EventForm = (props) => {
       end,
       user: { username: props.user.username }
     })
-    const newEvents = await eventService.getUserEvents(props.user.calendarId)
+    const newEvents = await eventService.getAll(props.user.calendarId)
     props.setEvents(newEvents)
     hidePopup()
   }
@@ -51,12 +51,12 @@ const EventForm = (props) => {
 
             <Form.Group>
               <Form.Label>Start</Form.Label>
-              <DateTime onChange={(date) => setStart( date._d )} value={start} />
+              <DateTime onChange={(date) => setStart( date.toDate() )} value={start} timeFormat="HH:mm" />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>End</Form.Label>
-              <DateTime onChange={(date) => setEnd( date._d )} value={end} />
+              <DateTime onChange={(date) => setEnd( date.toDate() )} value={end} timeFormat="HH:mm" />
             </Form.Group>
             <Button variant='primary' type='submit'>
               Save

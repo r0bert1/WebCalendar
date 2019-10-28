@@ -35,4 +35,5 @@
 | 24.10. | 1  | Tapahtumien poisto- ja muokkausreittien toteutus |
 | 24.10. | 1.5  | Tapahtumien poisto- ja muokkausreittien rajapintojen toteutus sekä tapahtumaa klikatessa ilmestyvän muokkaus/poisto -ikkunan aloitus |
 | 25.10. | 3  | Muokkaus/poisto -ikkunan lopullinen bootstrap popover toteutus |
-| yht   | 46  | | 
+| 28.10. | 3  | Tapahtumanluontilomakkeen korjaus ja kalenterin näkymän vaihto timegridiin |
+| yht   | 49  | | 

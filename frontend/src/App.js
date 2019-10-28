@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react'
 import Calendar from './components/Calendar'
 import LoginForm from './components/LoginForm'
-import EventForm from './components/EventForm'
+import EventCreateForm from './components/EventCreateForm'
 import eventService from './services/events'
 import { Navbar, Container, Button } from 'react-bootstrap'
 
@@ -9,8 +9,10 @@ import './components/Navbar.css'
 
 const App = () => {
   const [user, setUser] = useState(null)
-  const [popup, setPopup] = useState(false)
+  const [create, setCreate] = useState(false)
+  const [modify, setModify] = useState(false)
   const [events, setEvents] = useState([])
+  const [clickedEvent, setClickedEvent] = useState(null)
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('user')
@@ -51,9 +53,23 @@ const App = () => {
           }
         </Container>
       </Navbar>
-      <EventForm visible={popup} setVisible={setPopup} user={user} setEvents={setEvents} />
-      <LoginForm user={user} setUser={setUser} />
-      <Calendar user={user} showPopup={setPopup} events={events} />
+      <EventCreateForm 
+        visible={create} 
+        setVisible={setCreate} 
+        user={user} 
+        setEvents={setEvents} 
+      />
+      <LoginForm 
+        user={user} 
+        setUser={setUser} 
+      />
+      <Calendar 
+        user={user} 
+        showCreate={setCreate} 
+        showModify={setModify} 
+        events={events} 
+        setClickedEvent={setClickedEvent}
+      />
     </div>
   )
 }

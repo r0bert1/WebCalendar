@@ -11,6 +11,10 @@ const create = async info => {
   return response.data
 }
 
+/*const update = async (calendarId, info) => {
+  const response = await axios.put(`${baseUrl}/${calendarId}/${}`, info)
+}*/
+
 const remove = async (calendarId, eventId) => {
   const response = await axios.delete(`${baseUrl}/${calendarId}/${eventId}`)
   return response.data
