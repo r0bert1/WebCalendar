@@ -37,4 +37,4 @@
 | 25.10. | 3  | Muokkaus/poisto -ikkunan lopullinen bootstrap popover toteutus |
 | 28.10. | 3  | Tapahtumanluontilomakkeen korjaus ja kalenterin näkymän vaihto timegridiin |
 | 31.10. | 3  | Tapahtuman lisäykseen liittyvää debuggausta ja korjailua |
-| yht   | 49  | | 
+| yht   | 52  | | 
