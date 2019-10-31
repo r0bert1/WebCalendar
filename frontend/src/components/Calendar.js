@@ -8,7 +8,8 @@ import '../calendar.scss'
 import './Calendar.css'
 
 const Calendar = (props) => {
-  const handleDateClick = (dateInfo) => {
+  const handleDateClick = (info) => {
+    props.setClickedDate(info.date)
     props.showCreate(true)
   }
 

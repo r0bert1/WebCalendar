@@ -12,7 +12,6 @@ const create = async info => {
 }
 
 const update = async (calendarId, eventId, info) => {
-  console.log(info)
   const response = await axios.put(`${baseUrl}/${calendarId}/${eventId}`, info)
   return response.data
 }

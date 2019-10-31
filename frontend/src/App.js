@@ -13,6 +13,7 @@ const App = () => {
   const [create, setCreate] = useState(false)
   const [modify, setModify] = useState(false)
   const [events, setEvents] = useState([])
+  const [clickedDate, setClickedDate] = useState(null)
   const [clickedEvent, setClickedEvent] = useState(null)
 
   useEffect(() => {
@@ -59,7 +60,8 @@ const App = () => {
         setVisible={setCreate} 
         user={user}
         events={events}
-        setEvents={setEvents} 
+        setEvents={setEvents}
+        clickedDate={clickedDate}
       />
       <EventModifyForm
         visible={modify} 
@@ -77,7 +79,8 @@ const App = () => {
         user={user} 
         showCreate={setCreate} 
         showModify={setModify} 
-        events={events} 
+        events={events}
+        setClickedDate={setClickedDate}
         setClickedEvent={setClickedEvent}
       />
     </div>

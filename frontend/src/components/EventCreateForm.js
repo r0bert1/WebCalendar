@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import eventService from '../services/events'
 import DateTimePicker from 'react-datetime-picker'
@@ -9,6 +9,11 @@ const EventCreateForm = (props) => {
   const [title, setTitle] = useState('')
   const [start, setStart] = useState(new Date())
   const [end, setEnd] = useState(new Date())
+
+  useEffect(() => {
+    setStart(props.clickedDate)
+    setEnd(props.clickedDate)
+  }, [props.clickedDate])
 
   const hidePopup = () => {
     props.setVisible(false)
