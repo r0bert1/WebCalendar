@@ -1,17 +1,19 @@
 import React, { useState, useEffect, } from 'react'
-import { Modal, Button, Form } from 'react-bootstrap'
+import { Modal, Button, Form, ButtonToolbar } from 'react-bootstrap'
 import eventService from '../services/events'
 import DateTimePicker from 'react-datetime-picker'
 
 import './DateTimePicker.css'
 
 const EventModifyForm = (props) => {
+  const [id, setId] = useState('')
   const [title, setTitle] = useState('')
   const [start, setStart] = useState(null)
   const [end, setEnd] = useState(null)
 
   useEffect(() => {
     if (props.clickedEvent) {
+      setId(props.clickedEvent.id)
       setTitle(props.clickedEvent.title)
       setStart(props.clickedEvent.start)
       setEnd(props.clickedEvent.end)
@@ -27,14 +29,25 @@ const EventModifyForm = (props) => {
 
   const handleEventUpdate = async (event) => {
     event.preventDefault()
-    /*await eventService.create({
-      title,
-      start,
-      end,
-      user: { username: props.user.username }
-    })
-    const newEvents = await eventService.getUserEvents(props.user.calendarId)
-    props.setEvents(newEvents)*/
+    const updatedEvent = await eventService.update(
+      props.user.calendarId,
+      id,
+      { title, start, end }
+    )
+    const updatedEvents = props.events.map(event =>
+      event.id !== id ? event : updatedEvent
+    )
+    props.setEvents(updatedEvents)
+    hidePopup()
+  }
+
+  const handleDeletion = async (event) => {
+    event.preventDefault()
+    await eventService.remove(props.user.calendarId, id)
+    const updatedEvents = props.events.filter(event => 
+      event.id !== id
+    )
+    props.setEvents(updatedEvents)
     hidePopup()
   }
 
@@ -42,7 +55,7 @@ const EventModifyForm = (props) => {
     <Modal size='sm' show={props.visible} onHide={hidePopup}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Create event</Modal.Title>
+          <Modal.Title>Edit event</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -68,9 +81,14 @@ const EventModifyForm = (props) => {
               <br/>
               <DateTimePicker onChange={(date) => setEnd(date)} value={end} />
             </Form.Group>
-            <Button variant='primary' type='submit'>
-              Save
-            </Button>
+            <ButtonToolbar>
+              <Button variant='primary' type='submit'>
+                Save
+              </Button>
+              <Button className='ml-2' onClick={handleDeletion} variant='danger'>
+                Delete
+              </Button>
+            </ButtonToolbar>
           </Form>
         </Modal.Body>
       </Modal.Dialog>

@@ -11,13 +11,15 @@ const create = async info => {
   return response.data
 }
 
-/*const update = async (calendarId, info) => {
-  const response = await axios.put(`${baseUrl}/${calendarId}/${}`, info)
-}*/
+const update = async (calendarId, eventId, info) => {
+  console.log(info)
+  const response = await axios.put(`${baseUrl}/${calendarId}/${eventId}`, info)
+  return response.data
+}
 
 const remove = async (calendarId, eventId) => {
   const response = await axios.delete(`${baseUrl}/${calendarId}/${eventId}`)
   return response.data
 }
 
-export default { create, getAll, remove }
+export default { create, getAll, update, remove }

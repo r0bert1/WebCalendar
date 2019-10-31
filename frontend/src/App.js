@@ -62,7 +62,6 @@ const App = () => {
         setEvents={setEvents} 
       />
       <EventModifyForm
-        
         visible={modify} 
         setVisible={setModify} 
         user={user}

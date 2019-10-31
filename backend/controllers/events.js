@@ -69,8 +69,8 @@ eventsRouter.post('/', async (request, response) => {
 eventsRouter.put('/:calendarId/:eventId', (request, response) => {
   const calendarId = request.params.calendarId
   const eventId = request.params.eventId
-  const { title, start, end } = request.body.event
-
+  const { title, start, end } = request.body
+  
   const updatedEvent = {
     summary: title,
     start: { dateTime: start},
@@ -83,8 +83,14 @@ eventsRouter.put('/:calendarId/:eventId', (request, response) => {
     resource: updatedEvent
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err)
-    const event = res.data
+    let event = res.data
     if (event) {
+      event = {
+        id: event.id,
+        title: event.summary,
+        start: event.start.dateTime,
+        end: event.end.dateTime
+      }
       response
         .status(200)
         .send(event)

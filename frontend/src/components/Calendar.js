@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import bootstrapPlugin from '@fullcalendar/bootstrap'
-import eventService from '../services/events'
 
 import '../calendar.scss'
 import './Calendar.css'
