@@ -17,7 +17,7 @@
     "express": "^4.17.1",
     "googleapis": "^39.2.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.7.7",
     "mongoose-unique-validator": "^2.0.3"
   },
   "devDependencies": {
