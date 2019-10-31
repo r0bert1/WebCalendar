@@ -1,13 +1,9 @@
 import React, {useState} from 'react'
-import ReactDOM from 'react-dom'
 import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import bootstrapPlugin from '@fullcalendar/bootstrap'
 import eventService from '../services/events'
-import { Popover, OverlayTrigger, Form, Button } from 'react-bootstrap'
-import DateTime from 'react-datetime'
 
 import '../calendar.scss'
 import './Calendar.css'
@@ -24,6 +20,7 @@ const Calendar = (props) => {
       start: info.event.start,
       end: info.event.end
     })
+    props.showModify(true)
   }
 
   if (props.user) {

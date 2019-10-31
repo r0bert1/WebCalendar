@@ -1,3 +1,13 @@
+.react-datetime-picker__wrapper {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.react-datetime-picker__inputGroup {
+  padding: .375rem .75rem;
+}
+
+
 .rdt {
   position: relative;
 }

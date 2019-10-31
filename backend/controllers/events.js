@@ -21,13 +21,13 @@ eventsRouter.get('/:calendarId', (request, response) => {
             id: event.id,
             title: event.summary, 
             start: event.start.dateTime, 
-            end: event.start.dateTime
+            end: event.end.dateTime
           }
         )
       })
       response
         .status(200)
-        .send({ events })
+        .send(events)
     } else {
       console.log('No upcoming events found.')
     }
@@ -40,7 +40,6 @@ eventsRouter.post('/', async (request, response) => {
   const startDateTime = moment(body.start).format()
   const endDateTime = moment(body.end).format()
   const user = await User.findOne({ username: body.user.username })
-
   const event = {
     summary: title,
     start: { dateTime: startDateTime },
@@ -52,11 +51,17 @@ eventsRouter.post('/', async (request, response) => {
     resource: event
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err)
-    const event = res.data
+    let event = res.data
     if (event) {
+      event = {
+        id: event.id,
+        title: event.summary,
+        start: event.start.dateTime,
+        end: event.end.dateTime
+      }
       response
         .status(200)
-        .send({ event })
+        .send(event)
     }
   })
 })
@@ -82,7 +87,7 @@ eventsRouter.put('/:calendarId/:eventId', (request, response) => {
     if (event) {
       response
         .status(200)
-        .send({ event })
+        .send(event)
     }
   })
 })

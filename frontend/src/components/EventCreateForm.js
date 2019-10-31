@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import eventService from '../services/events'
-import DateTime from 'react-datetime'
+import DateTimePicker from 'react-datetime-picker'
 
-import './Datetime.css'
+import './DateTimePicker.css'
 
-const EventForm = (props) => {
+const EventCreateForm = (props) => {
   const [title, setTitle] = useState('')
   const [start, setStart] = useState(new Date())
   const [end, setEnd] = useState(new Date())
@@ -13,19 +13,19 @@ const EventForm = (props) => {
   const hidePopup = () => {
     props.setVisible(false)
     setTitle('')
-    setStart(new Date())
-    setEnd(new Date())
+    setStart(null)
+    setEnd(null)
   }
 
   const handleNewEvent = async (event) => {
     event.preventDefault()
-    await eventService.create({
+    const newEvent = await eventService.create({
       title,
       start,
       end,
       user: { username: props.user.username }
     })
-    const newEvents = await eventService.getAll(props.user.calendarId)
+    const newEvents = props.events.concat(newEvent)
     props.setEvents(newEvents)
     hidePopup()
   }
@@ -51,12 +51,14 @@ const EventForm = (props) => {
 
             <Form.Group>
               <Form.Label>Start</Form.Label>
-              <DateTime onChange={(date) => setStart( date.toDate() )} value={start} timeFormat="HH:mm" />
+              <br/>
+              <DateTimePicker onChange={(date) => setStart( date )} value={start} timeFormat="HH:mm" />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>End</Form.Label>
-              <DateTime onChange={(date) => setEnd( date.toDate() )} value={end} timeFormat="HH:mm" />
+              <br/>
+              <DateTimePicker onChange={(date) => setEnd( date )} value={end} timeFormat="HH:mm" />
             </Form.Group>
             <Button variant='primary' type='submit'>
               Save
@@ -68,4 +70,4 @@ const EventForm = (props) => {
   )
 }
 
-export default EventForm
+export default EventCreateForm

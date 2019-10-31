@@ -2,6 +2,7 @@
 import Calendar from './components/Calendar'
 import LoginForm from './components/LoginForm'
 import EventCreateForm from './components/EventCreateForm'
+import EventModifyForm from './components/EventModifyForm'
 import eventService from './services/events'
 import { Navbar, Container, Button } from 'react-bootstrap'
 
@@ -56,14 +57,24 @@ const App = () => {
       <EventCreateForm 
         visible={create} 
         setVisible={setCreate} 
-        user={user} 
+        user={user}
+        events={events}
         setEvents={setEvents} 
+      />
+      <EventModifyForm
+        
+        visible={modify} 
+        setVisible={setModify} 
+        user={user}
+        events={events}
+        setEvents={setEvents} 
+        clickedEvent={clickedEvent}
       />
       <LoginForm 
         user={user} 
         setUser={setUser} 
       />
-      <Calendar 
+      <Calendar
         user={user} 
         showCreate={setCreate} 
         showModify={setModify} 
