@@ -5,6 +5,7 @@ import EventCreateForm from './components/EventCreateForm'
 import EventModifyForm from './components/EventModifyForm'
 import eventService from './services/events'
 import { Navbar, Container, Button } from 'react-bootstrap'
+import DatePicker from 'react-calendar'
 
 import './components/Navbar.css'
 
@@ -15,6 +16,7 @@ const App = () => {
   const [events, setEvents] = useState([])
   const [clickedDate, setClickedDate] = useState(null)
   const [clickedEvent, setClickedEvent] = useState(null)
+  const [date, setDate] = useState(null)
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('user')
@@ -75,14 +77,26 @@ const App = () => {
         user={user} 
         setUser={setUser} 
       />
-      <Calendar
-        user={user} 
-        showCreate={setCreate} 
-        showModify={setModify} 
-        events={events}
-        setClickedDate={setClickedDate}
-        setClickedEvent={setClickedEvent}
-      />
+      <div className='calendarRow'>
+        <div className='datePicker'>
+          <DatePicker
+            locale='en'
+            onChange={(date) => setDate(date)}
+            value={date}
+          />
+        </div>
+        <div>
+          <Calendar
+            date={date}
+            user={user} 
+            showCreate={setCreate} 
+            showModify={setModify} 
+            events={events}
+            setClickedDate={setClickedDate}
+            setClickedEvent={setClickedEvent}
+          />
+        </div>
+      </div>
     </div>
   )
 }

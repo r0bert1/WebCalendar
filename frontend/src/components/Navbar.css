@@ -1,3 +1,18 @@
 .navbar-text {
   margin-right: 0.75em;
 }
+
+.calendarRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.react-calendar {
+  margin-top: 5.4em;
+  margin-left: 2em;
+  border: 1px solid #dee2e6;
+}
+
+.datePicker {
+  width: 27%;
+}
