@@ -42,7 +42,7 @@ const Calendar = (props) => {
         ref={calendarRef}
         columnHeaderFormat={{day: 'numeric'}}
         firstDay={1}
-        nowIndicator={true}
+        now={props.date}
         dateClick={handleDateClick}
         defaultView="timeGridWeek"
         allDaySlot={false}
