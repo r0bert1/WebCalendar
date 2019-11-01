@@ -4,7 +4,7 @@ import LoginForm from './components/LoginForm'
 import EventCreateForm from './components/EventCreateForm'
 import EventModifyForm from './components/EventModifyForm'
 import eventService from './services/events'
-import { Navbar, Container, Button } from 'react-bootstrap'
+import { Navbar, Button } from 'react-bootstrap'
 import DatePicker from 'react-calendar'
 
 import './components/Navbar.css'
@@ -16,7 +16,7 @@ const App = () => {
   const [events, setEvents] = useState([])
   const [clickedDate, setClickedDate] = useState(null)
   const [clickedEvent, setClickedEvent] = useState(null)
-  const [date, setDate] = useState(null)
+  const [date, setDate] = useState(new Date())
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('user')
@@ -45,17 +45,15 @@ const App = () => {
   return (
     <div>
       <Navbar bg='dark' variant='dark'>
-        <Container>
-        <Navbar.Brand>Calendar</Navbar.Brand>
-          {user && 
-            <div>
-              <Navbar.Text>
-                Signed in as: <em>{user.username}</em>
-              </Navbar.Text>
-              <Button onClick={handleLogout}>Logout</Button>
-            </div>
-          }
-        </Container>
+        <Navbar.Brand>WebCalendar</Navbar.Brand> 
+        {user && 
+          <React.Fragment>
+            <Navbar.Text>
+              <em>{user.username}</em>
+            </Navbar.Text>
+            <Button onClick={handleLogout}>Logout</Button>
+          </React.Fragment>
+        }
       </Navbar>
       <EventCreateForm 
         visible={create} 
@@ -79,13 +77,15 @@ const App = () => {
       />
       <div className='calendarRow'>
         <div className='datePicker'>
-          <DatePicker
-            locale='en'
-            onChange={(date) => setDate(date)}
-            value={date}
-          />
+          {user && 
+            <DatePicker
+              locale='en'
+              onChange={(date) => setDate(date)}
+              value={date}
+            />
+          }
         </div>
-        <div>
+        <div className='calendar-container'>
           <Calendar
             date={date}
             user={user} 

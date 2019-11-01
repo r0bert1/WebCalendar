@@ -1,5 +1,24 @@
+html, body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.navbar {
+  padding-bottom: 1rem !important;
+  display:block !important;
+}
+
+.navbar-brand {
+  font-size: 1.5rem !important;
+}
+
 .navbar-text {
   margin-right: 0.75em;
+}
+
+.calendar-container {
+  display: block;
+  height: 85vh;
 }
 
 .calendarRow {

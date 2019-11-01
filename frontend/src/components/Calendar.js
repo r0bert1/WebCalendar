@@ -50,6 +50,8 @@ const Calendar = (props) => {
         themeSystem='bootstrap'
         events={props.events}
         eventClick={handleEventClick}
+        eventTextColor='#FFF'
+        height='parent'
       />
     )
   }

@@ -41,4 +41,5 @@
 | 31.10. | 0.5  | Tapahtumalomakkeen alku- ja loppupäivämäärän asettaminen klikattuun ajankohtaan |
 | 1.11. | 2  | DatePickerin lisäys viikottaisen kalenterinäkymän viereen |
 | 1.11. | 1  | CSS parannuksia valitun päivän indikaattoriin |
-| yht   | 56.5  | | 
+| 1.11. | 2.5  | CSS parannuksia sovelluksen käytettävyyteen ikkunan koon muuttuessa  |
+| yht   | 59  | | 
