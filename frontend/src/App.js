@@ -4,10 +4,10 @@ import LoginForm from './components/LoginForm'
 import EventCreateForm from './components/EventCreateForm'
 import EventModifyForm from './components/EventModifyForm'
 import eventService from './services/events'
-import { Navbar, Button } from 'react-bootstrap'
+import { Navbar, Button, Col } from 'react-bootstrap'
 import DatePicker from 'react-calendar'
 
-import './components/Navbar.css'
+import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -45,15 +45,19 @@ const App = () => {
   return (
     <div>
       <Navbar bg='dark' variant='dark'>
-        <Navbar.Brand>WebCalendar</Navbar.Brand> 
-        {user && 
-          <React.Fragment>
-            <Navbar.Text>
-              <em>{user.username}</em>
-            </Navbar.Text>
-            <Button onClick={handleLogout}>Logout</Button>
-          </React.Fragment>
-        }
+        <Col>
+          <Navbar.Brand>WebCalendar</Navbar.Brand> 
+        </Col>
+        <Col className="LoginInfo">
+          {user && 
+            <React.Fragment>
+              <Navbar.Text>
+                <em>{user.username}</em>
+              </Navbar.Text>
+              <Button onClick={handleLogout}>Logout</Button>
+            </React.Fragment>
+          }
+        </Col>
       </Navbar>
       <EventCreateForm 
         visible={create} 

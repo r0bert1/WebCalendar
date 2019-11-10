@@ -3,9 +3,12 @@ html, body {
   height: 100vh;
 }
 
+.LoginInfo {
+  text-align: right;
+}
+
 .navbar {
   padding-bottom: 1rem !important;
-  display:block !important;
 }
 
 .navbar-brand {

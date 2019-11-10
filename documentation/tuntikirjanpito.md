@@ -42,4 +42,5 @@
 | 1.11. | 2  | DatePickerin lisäys viikottaisen kalenterinäkymän viereen |
 | 1.11. | 1  | CSS parannuksia valitun päivän indikaattoriin |
 | 1.11. | 2.5  | CSS parannuksia sovelluksen käytettävyyteen ikkunan koon muuttuessa  |
-| yht   | 59  | | 
+| 10.11. | 1  | CSS parannuksia ja refaktorointia |
+| yht   | 60  | | 

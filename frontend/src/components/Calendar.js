@@ -4,7 +4,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import bootstrapPlugin from '@fullcalendar/bootstrap'
 
-import '../calendar.scss'
+import './Calendar.scss'
 import './Calendar.css'
 
 const Calendar = (props) => {
@@ -18,7 +18,7 @@ const Calendar = (props) => {
 
   const handleDateChange = (date) => {
     let calendarApi = calendarRef.current.getApi()
-    calendarApi.gotoDate(date) // e.g. '2019-11-09'
+    calendarApi.gotoDate(date)
   }
 
   const handleDateClick = (info) => {
