@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react'
 import Calendar from './components/Calendar'
 import LoginForm from './components/LoginForm'
+import SignUpForm from './components/SignUpForm'
 import EventCreateForm from './components/EventCreateForm'
 import EventModifyForm from './components/EventModifyForm'
 import eventService from './services/events'
@@ -17,6 +18,7 @@ const App = () => {
   const [clickedDate, setClickedDate] = useState(null)
   const [clickedEvent, setClickedEvent] = useState(null)
   const [date, setDate] = useState(new Date())
+  const [signUp, setSignUp] = useState(false)
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('user')
@@ -49,13 +51,20 @@ const App = () => {
           <Navbar.Brand>WebCalendar</Navbar.Brand> 
         </Col>
         <Col className="LoginInfo">
-          {user && 
-            <React.Fragment>
-              <Navbar.Text>
-                <em>{user.username}</em>
-              </Navbar.Text>
-              <Button onClick={handleLogout}>Logout</Button>
-            </React.Fragment>
+          {user 
+            ? <React.Fragment>
+                <Navbar.Text>
+                  <em>{user.username}</em>
+                </Navbar.Text>
+                <Button onClick={handleLogout}>Logout</Button>
+              </React.Fragment>
+            : null
+          }
+          {!user &&
+            (signUp
+              ? <Button onClick={() => setSignUp(false)}>Log in</Button>
+              : <Button onClick={() => setSignUp(true)}>Sign up</Button>
+            )
           }
         </Col>
       </Navbar>
@@ -75,10 +84,16 @@ const App = () => {
         setEvents={setEvents} 
         clickedEvent={clickedEvent}
       />
-      <LoginForm 
-        user={user} 
-        setUser={setUser} 
-      />
+      {signUp
+        ? <SignUpForm 
+            user={user} 
+            setUser={setUser} 
+          />
+        : <LoginForm 
+            user={user} 
+            setUser={setUser} 
+          />
+      }
       <div className='calendarRow'>
         <div className='datePicker'>
           {user && 

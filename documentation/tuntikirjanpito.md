@@ -43,4 +43,5 @@
 | 1.11. | 1  | CSS parannuksia valitun päivän indikaattoriin |
 | 1.11. | 2.5  | CSS parannuksia sovelluksen käytettävyyteen ikkunan koon muuttuessa  |
 | 10.11. | 1  | CSS parannuksia ja refaktorointia |
-| yht   | 60  | | 
+| 17.11. | 1.5  | Uuden käyttäjän luomisen toteutus |
+| yht   | 61.5  | | 

@@ -11,11 +11,17 @@ usersRouter.get('/', async (request, response) => {
 
 usersRouter.post('/', async (request, response, next) => {
   try {
-    const { username, password } = request.body
+    const { username, password, confirmPw } = request.body
 
     if (!password || password.length < 3 ) {
       return response.status(400).send({
         error: 'password minimum length 3'
+      })
+    }
+
+    if (password != confirmPw) {
+      return response.status(400).send({
+        error: 'passwords do not match'
       })
     }
 

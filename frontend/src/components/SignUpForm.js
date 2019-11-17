@@ -1,18 +1,18 @@
 import React, { useState  } from 'react'
-import loginService from '../services/login'
+import userService from '../services/users'
 import { Button, Form, Container, Row } from 'react-bootstrap'
 
-import './LoginForm.css'
-
-const LoginForm = (props) => {
+const SignUpForm = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPw, setConfirmPw] = useState('')
 
-  const handleLogin = async (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault()
-    const user = await loginService.login({
+    const user = await userService.create({
       username,
-      password
+      password,
+      confirmPw
     })
     window.localStorage.setItem('user', JSON.stringify(user))
     props.setUser(user)
@@ -25,8 +25,8 @@ const LoginForm = (props) => {
   return (
     <Container>
       <Row className='justify-content-center'>
-        <Form onSubmit={handleLogin}>
-          <h2 className='title'>Log in</h2>
+        <Form onSubmit={handleSignUp}>
+          <h2 className='title'>Sign up</h2>
           <Form.Group>
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -45,6 +45,15 @@ const LoginForm = (props) => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </Form.Group>
+          <Form.Group>
+            <Form.Label>Confirm password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Confirm password'
+              value={confirmPw}
+              onChange={(event) => setConfirmPw(event.target.value)}
+            />
+          </Form.Group>
           <Button variant='primary' type='submit'>
             Submit
           </Button>
@@ -54,4 +63,4 @@ const LoginForm = (props) => {
   )
 }
 
-export default LoginForm
+export default SignUpForm
