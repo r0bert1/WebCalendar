@@ -31,7 +31,9 @@ const App = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       const newEvents = await eventService.getAll(user.calendarId)
-      setEvents(newEvents)
+      if (newEvents) {
+        setEvents(newEvents)
+      }
     }
     if (user) {
       fetchEvents()
@@ -90,6 +92,7 @@ const App = () => {
             setUser={setUser} 
           />
         : <LoginForm 
+            setDate={setDate}
             user={user} 
             setUser={setUser} 
           />

@@ -29,7 +29,9 @@ eventsRouter.get('/:calendarId', (request, response) => {
         .status(200)
         .send(events)
     } else {
-      console.log('No upcoming events found.')
+      response
+        .status(204)
+        .send({ message: 'No upcoming events found' })
     }
   })
 })

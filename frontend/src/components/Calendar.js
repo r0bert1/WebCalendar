@@ -40,6 +40,11 @@ const Calendar = (props) => {
     return (
       <FullCalendar
         ref={calendarRef}
+        header={{
+          left:'prev',
+          center:'title',
+          right:'next'
+        }}
         columnHeaderFormat={{day: 'numeric'}}
         firstDay={1}
         now={props.date}
@@ -56,9 +61,7 @@ const Calendar = (props) => {
     )
   }
   
-  return (
-    <div></div>
-  )
+  return null
 }
 
 export default Calendar
