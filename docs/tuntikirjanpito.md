@@ -44,5 +44,6 @@
 | 1.11. | 2.5  | CSS parannuksia sovelluksen käytettävyyteen ikkunan koon muuttuessa  |
 | 10.11. | 1  | CSS parannuksia ja refaktorointia |
 | 17.11. | 1.5  | Uuden käyttäjän luomisen toteutus |
-| 17.11. | 0.5  | Kalenterin otsikon muokkaus ja tapahtumien get-pyynnön korjaus|
-| yht   | 62  | | 
+| 17.11. | 0.5  | Kalenterin otsikon muokkaus ja tapahtumien get-pyynnön korjaus |
+| 18.11. | 7  | Sovelluksen deployaus herokuun |
+| yht   | 69  | | 
