@@ -27,6 +27,8 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
     console.log('error connection to MongoDB:', error.message)
   })
 
+app.use(express.static(path.resolve(__dirname, '../ui/build')))
+
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/events', eventsRouter)
