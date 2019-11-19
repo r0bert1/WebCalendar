@@ -12,13 +12,6 @@ usersRouter.get('/', async (request, response) => {
 usersRouter.post('/', async (request, response, next) => {
   try {
     const { username, password, confirmPw } = request.body
-    
-    const user = await User.find({})
-    if (user) {
-      return response.status(400).send({
-        error: 'username already in use'
-      })
-    }
 
     if (!password || password.length < 3 ) {
       return response.status(400).send({
