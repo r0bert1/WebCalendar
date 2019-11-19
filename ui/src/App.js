@@ -88,6 +88,7 @@ const App = () => {
       />
       {signUp
         ? <SignUpForm 
+            setVisible={setSignUp}
             user={user} 
             setUser={setUser} 
           />
