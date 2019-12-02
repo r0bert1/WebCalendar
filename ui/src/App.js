@@ -42,7 +42,7 @@ const App = () => {
 
   const handleLogout = () => {
     setUser(null)
-    setEvents(null)
+    setEvents([])
     window.localStorage.removeItem('user')
   }
 
@@ -88,6 +88,7 @@ const App = () => {
       />
       {signUp
         ? <SignUpForm 
+            setVisible={setSignUp}
             user={user} 
             setUser={setUser} 
           />

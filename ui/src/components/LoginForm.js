@@ -17,6 +17,8 @@ const LoginForm = (props) => {
     window.localStorage.setItem('user', JSON.stringify(user))
     props.setUser(user)
     props.setDate(new Date())
+    setUsername('')
+    setPassword('')
   }
 
   if (props.user) {

@@ -43,7 +43,7 @@ usersRouter.post('/', async (request, response, next) => {
           calendarId
         })
         await user.save()
-        response.json(calendar)
+        response.send(user)
       } else {
         console.log('No calendar created')
       }

@@ -16,6 +16,10 @@ const SignUpForm = (props) => {
     })
     window.localStorage.setItem('user', JSON.stringify(user))
     props.setUser(user)
+    setUsername('')
+    setPassword('')
+    setConfirmPw('')
+    props.setVisible(false)
   }
 
   if (props.user) {
