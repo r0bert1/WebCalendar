@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "watch": "cross-env NODE_ENV=development nodemon server/index.js",
-    "test": "cross-env NODE_TEST=test jest --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd ui && npm install && npm run build"
   },
   "author": "Robert Pakkanen",
@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "jest": "^24.9.0",
     "nodemon": "^1.19.2"
   },
   "jest": {
