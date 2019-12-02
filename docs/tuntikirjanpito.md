@@ -47,4 +47,5 @@
 | 17.11. | 0.5  | Kalenterin otsikon muokkaus ja tapahtumien get-pyynnön korjaus |
 | 18.11. | 7  | Sovelluksen deployaus herokuun |
 | 19.11. | 4  | Käyttäjän luomiseen liittyvää debuggausta |
-| yht   | 73  | | 
+| 2.12. | 1  | Tuotannossa ja kehityksessä api keyn hakeminen eri tavoin |
+| yht   | 74  | | 
