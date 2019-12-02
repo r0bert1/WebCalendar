@@ -1,6 +1,5 @@
 const { google } = require('googleapis')
 const { auth } = require('google-auth-library')
-const key = require('../../service_account_key.json')
 
 const SCOPES = [
   'https://www.googleapis.com/auth/calendar',
@@ -10,6 +9,7 @@ const SCOPES = [
 let client
 
 if (process.env.NODE_ENV === 'development') {
+  const key = require('../../service_account_key.json')
   client = new google.auth.JWT(
     key.client_email,
     null,
