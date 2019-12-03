@@ -63,6 +63,7 @@ const EventModifyForm = (props) => {
             <Form.Group>
               <Form.Label>Title</Form.Label>
               <Form.Control
+                data-cy='title'
                 type='text'
                 placeholder='Enter title'
                 value={title} 
@@ -73,13 +74,23 @@ const EventModifyForm = (props) => {
             <Form.Group>
               <Form.Label>Start</Form.Label>
               <br/>
-              <DateTimePicker onChange={(date) => setStart(date)} value={start} />
+              <DateTimePicker
+                onChange={(date) => setStart(date)} 
+                value={start} 
+                timeFormat="HH:mm" 
+                disableClock="true"
+              />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>End</Form.Label>
               <br/>
-              <DateTimePicker onChange={(date) => setEnd(date)} value={end} />
+              <DateTimePicker 
+                onChange={(date) => setEnd(date)} 
+                value={end} 
+                timeFormat="HH:mm" 
+                disableClock="true"
+              />
             </Form.Group>
             <ButtonToolbar>
               <Button variant='primary' type='submit'>
