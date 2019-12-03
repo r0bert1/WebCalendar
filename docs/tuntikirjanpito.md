@@ -48,4 +48,5 @@
 | 18.11. | 7  | Sovelluksen deployaus herokuun |
 | 19.11. | 4  | Käyttäjän luomiseen liittyvää debuggausta |
 | 2.12. | 1  | Tuotannossa ja kehityksessä api keyn hakeminen eri tavoin |
-| yht   | 74  | | 
+| 3.12. | 1.5  | Ensimmäisten E2E-testien lisäys |
+| yht   | 75.5  | | 
