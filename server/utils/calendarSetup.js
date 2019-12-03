@@ -7,9 +7,10 @@ const SCOPES = [
 ]
 
 let client
+let key
 
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
-  const key = require('../../service_account_key.json')
+  key = require('../../service_account_key.json')
   client = new google.auth.JWT(
     key.client_email,
     null,
@@ -17,12 +18,12 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     SCOPES
   )
 } else {
-  const keysEnvVar = process.env['CREDS']
-  if (!keysEnvVar) {
+  const keyEnvVar = process.env['CREDS']
+  if (!keyEnvVar) {
     throw new Error('The $CREDS environment variable was not found!')
   }
-  const keys = JSON.parse(keysEnvVar)
-  client = auth.fromJSON(keys)
+  key = JSON.parse(keysEnvVar)
+  client = auth.fromJSON(key)
   client.scopes = SCOPES
 }
 
