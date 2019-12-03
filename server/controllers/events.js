@@ -108,7 +108,20 @@ eventsRouter.delete('/:calendarId/:eventId', (request, response) => {
     calendarId: calendarId,
     eventId: eventId
   }, (err, res) => {
-    if (err) return console.log('The API returned an error: ' + err)
+    if (err) return console.log('Error deleting event: ' + err)
+    response
+      .status(204)
+      .end()
+  })
+})
+
+eventsRouter.delete('/:calendarId', (request, response) => {
+  const calendarId = request.params.calendarId
+
+  api.calendars.clear({
+    calendarId: calendarId
+  }, (err, res) => {
+    if (err) return console.log('Error clearing calendar: ' + err)
     response
       .status(204)
       .end()
