@@ -5,7 +5,6 @@ const api = require('../utils/calendarSetup')
 
 usersRouter.get('/', async (request, response) => {
   const users = await User.find({})
-
   response.json(users.map(u => u.toJSON()))
 })
 
@@ -51,6 +50,21 @@ usersRouter.post('/', async (request, response, next) => {
   } catch (exception) {
     next(exception)
   }
+})
+
+usersRouter.delete('/:calendarId', async (request, response) => {
+  const calendarId = request.params.calendarId
+
+  await User.deleteOne({ calendarId: calendarId})
+
+  api.calendars.delete({
+    calendarId: calendarId
+  }, (err, res) => {
+    if (err) return console.log('Error deleting calendar: ' + err)
+    response
+      .status(204)
+      .end()
+  })
 })
 
 module.exports = usersRouter
