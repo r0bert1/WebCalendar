@@ -8,7 +8,7 @@ const SCOPES = [
 
 let client
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   const key = require('../../service_account_key.json')
   client = new google.auth.JWT(
     key.client_email,

@@ -7,7 +7,8 @@
     "start": "node server/index.js",
     "watch": "cross-env NODE_ENV=development nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd ui && npm install && npm run build"
+    "build": "cd ui && npm install && npm run build",
+    "start:test": "cross-env NODE_ENV=test node server/index.js"
   },
   "author": "Robert Pakkanen",
   "license": "ISC",

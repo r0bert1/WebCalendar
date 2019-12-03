@@ -33,6 +33,7 @@ const LoginForm = (props) => {
           <Form.Group>
             <Form.Label>Username</Form.Label>
             <Form.Control
+              data-cy='username'
               type='text'
               placeholder='Enter username'
               value={username} 
@@ -42,6 +43,7 @@ const LoginForm = (props) => {
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
+              data-cy='password'
               type='password'
               placeholder='Enter password'
               value={password}
