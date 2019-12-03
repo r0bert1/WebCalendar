@@ -1,4 +1,11 @@
 describe('WebCalendar app', function() {
+  before(function() {
+    cy.request(
+      'POST', 
+      'http://localhost:3001/api/testing/reset/2dk3iq15mf88mf82hk7n8rp43s@group.calendar.google.com'
+    )
+  })
+
   it('login page is displayed correctly', function() {
     cy.visit('http://localhost:3000')
     cy.contains('Log in')
