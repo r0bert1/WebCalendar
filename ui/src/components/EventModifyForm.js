@@ -77,7 +77,7 @@ const EventModifyForm = (props) => {
               <DateTimePicker
                 onChange={(date) => setStart(date)} 
                 value={start} 
-                timeFormat="HH:mm" 
+                locale="fi"
                 disableClock="true"
               />
             </Form.Group>
@@ -88,7 +88,7 @@ const EventModifyForm = (props) => {
               <DateTimePicker 
                 onChange={(date) => setEnd(date)} 
                 value={end} 
-                timeFormat="HH:mm" 
+                locale="fi"
                 disableClock="true"
               />
             </Form.Group>
