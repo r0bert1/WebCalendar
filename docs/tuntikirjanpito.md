@@ -49,4 +49,5 @@
 | 19.11. | 4  | Käyttäjän luomiseen liittyvää debuggausta |
 | 2.12. | 1  | Tuotannossa ja kehityksessä api keyn hakeminen eri tavoin |
 | 3.12. | 1.5  | Ensimmäisten E2E-testien lisäys |
-| yht   | 75.5  | | 
+| 3.12. | 2  | Lisättiin testit tapahtumien lisäämiselle, muokkaamiselle ja poistamiselle |
+| yht   | 77.5  | | 
