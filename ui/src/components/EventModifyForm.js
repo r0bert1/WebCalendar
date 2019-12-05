@@ -52,7 +52,7 @@ const EventModifyForm = (props) => {
   }
 
   return (
-    <Modal size='sm' show={props.visible} onHide={hidePopup}>
+    <Modal size='sm' show={props.visible} onHide={hidePopup} centered>
       <Modal.Dialog>
         <Modal.Header closeButton>
           <Modal.Title>Edit event</Modal.Title>
@@ -77,8 +77,8 @@ const EventModifyForm = (props) => {
               <DateTimePicker
                 onChange={(date) => setStart(date)} 
                 value={start} 
-                locale="fi"
-                disableClock="true"
+                locale='fi'
+                disableClock={true}
               />
             </Form.Group>
 
@@ -88,8 +88,8 @@ const EventModifyForm = (props) => {
               <DateTimePicker 
                 onChange={(date) => setEnd(date)} 
                 value={end} 
-                locale="fi"
-                disableClock="true"
+                locale='fi'
+                disableClock={true}
               />
             </Form.Group>
             <ButtonToolbar>

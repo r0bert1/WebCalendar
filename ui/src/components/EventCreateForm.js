@@ -36,7 +36,7 @@ const EventCreateForm = (props) => {
   }
 
   return (
-    <Modal size='sm' show={props.visible} onHide={hidePopup}>
+    <Modal size='sm' show={props.visible} onHide={hidePopup} centered>
       <Modal.Dialog>
         <Modal.Header closeButton>
           <Modal.Title>Create event</Modal.Title>
@@ -61,7 +61,7 @@ const EventCreateForm = (props) => {
               <DateTimePicker
                 onChange={(date) => setStart( date )} 
                 value={start} 
-                disableClock="true"
+                disableClock={true}
                 locale="fi"
               />
             </Form.Group>
@@ -72,7 +72,7 @@ const EventCreateForm = (props) => {
               <DateTimePicker
                 onChange={(date) => setEnd( date )} 
                 value={end} 
-                disableClock="true"
+                disableClock={true}
                 locale="fi"
               />
             </Form.Group>
