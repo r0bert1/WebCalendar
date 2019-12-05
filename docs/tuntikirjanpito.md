@@ -51,5 +51,7 @@
 | 3.12. | 1.5  | Ensimmäisten E2E-testien lisäys |
 | 3.12. | 2  | Lisättiin testit tapahtumien lisäämiselle, muokkaamiselle ja poistamiselle |
 | 3.12. | 1  | Kalenterin tyhjennys ennen testien suorittamista |
-| 5.12. | 4  | Kalenterin sovittaminen sen parent-komponentin kokoon ikkunan koon muuttuessa |
-| yht   | 82.5  | | 
+| 4.12. - 5.12 | 4  | Kalenterin sovittaminen sen parent-komponentin kokoon ikkunan koon muuttuessa |
+| 4.12. - 5.12 | 2  | CSS grid layoutin opettelua |
+| 5.12. | 3  | Sovelluksen CSS layoutin uusiminen ja latausindikaattorin lisäys käyttäjän luomiseen | 
+| yht   | 87.5  | | 
