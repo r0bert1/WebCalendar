@@ -9,6 +9,7 @@ import './Calendar.css'
 
 const Calendar = (props) => {
   const calendarRef = useRef()
+  const containerRef = useRef()
 
   useEffect(() => {
     if (props.user && props.date) {
@@ -16,9 +17,20 @@ const Calendar = (props) => {
     }
   }, [calendarRef, props.user, props.date])
 
+  useEffect(() => {
+    handleWindowResize()
+  }, [])
+
   const handleDateChange = (date) => {
     let calendarApi = calendarRef.current.getApi()
     calendarApi.gotoDate(date)
+  }
+
+  const handleWindowResize = () => {
+    let calendarApi = calendarRef.current.getApi()
+    calendarApi.setOption('height', 100)
+    const container = containerRef.current
+    calendarApi.setOption('height', container.offsetHeight - 32)
   }
 
   const handleDateClick = (info) => {
@@ -36,8 +48,8 @@ const Calendar = (props) => {
     props.showModify(true)
   }
 
-  if (props.user) {
-    return (
+  return (
+    <div className='calendar-container' ref={containerRef}>
       <FullCalendar
         ref={calendarRef}
         header={{
@@ -56,12 +68,11 @@ const Calendar = (props) => {
         events={props.events}
         eventClick={handleEventClick}
         eventTextColor='#FFF'
-        height='parent'
+        height={100}
+        windowResize={handleWindowResize}
       />
-    )
-  }
-  
-  return null
+    </div>
+  )
 }
 
 export default Calendar

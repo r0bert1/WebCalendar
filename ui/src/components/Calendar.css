@@ -1,4 +1,4 @@
-.fc {
+/*.fc {
   margin-top: 1.5em;
   margin-left: 1em;
   margin-right: 1em;
@@ -11,4 +11,8 @@
 .fc-day-header.fc-today {
   background: #007bff;
   color: #FFF;
-}
+}*/
+
+/*.fc-scroller {
+  overflow: auto auto !important;
+}*/
