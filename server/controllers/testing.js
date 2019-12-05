@@ -9,17 +9,17 @@ testingRouter.post('/reset/:calendarId', (request, response) => {
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err)
     const eventsData = res.data.items
-      eventsData.forEach(event => {
-        api.events.delete({
-          calendarId: calendarId,
-          eventId: event.id
-        }, (err, res) => {
-          if (err) return console.log('Error deleting event: ' + err)
-        })
+    eventsData.forEach(event => {
+      api.events.delete({
+        calendarId: calendarId,
+        eventId: event.id
+      }, (err, res) => {
+        if (err) return console.log('Error deleting event: ' + err)
       })
-      response
-        .status(204)
-        .end()
+    })
+    response
+      .status(204)
+      .end()
   })
 })
 
