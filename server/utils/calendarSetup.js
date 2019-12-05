@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   if (!keyEnvVar) {
     throw new Error('The $CREDS environment variable was not found!')
   }
-  key = JSON.parse(keysEnvVar)
+  key = JSON.parse(keyEnvVar)
   client = auth.fromJSON(key)
   client.scopes = SCOPES
 }
