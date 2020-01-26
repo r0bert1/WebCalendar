@@ -4,9 +4,8 @@
 }
 
 .react-datetime-picker__inputGroup {
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
 }
-
 
 .rdt {
   position: relative;
@@ -20,7 +19,7 @@
   margin-top: 1px;
   z-index: 99999 !important;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #f9f9f9;
   border-radius: 5px;
 }
@@ -119,10 +118,10 @@
 .rdtNext span {
   display: block;
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
 
@@ -195,10 +194,10 @@ td.rdtYear:hover {
   display: block;
 
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
 .rdtCounter .rdtBtn:hover {

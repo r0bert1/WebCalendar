@@ -1,134 +1,134 @@
-﻿import React, { useState, useEffect } from 'react'
-import Calendar from './components/Calendar'
-import LoginForm from './components/LoginForm'
-import SignUpForm from './components/SignUpForm'
-import EventCreateForm from './components/EventCreateForm'
-import EventModifyForm from './components/EventModifyForm'
-import eventService from './services/events'
-import { Navbar, Button, Spinner } from 'react-bootstrap'
-import DatePicker from 'react-calendar'
+﻿import React, { useState, useEffect } from 'react';
+import { Navbar, Button, Spinner } from 'react-bootstrap';
+import DatePicker from 'react-calendar';
+import Calendar from './components/Calendar';
+import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignUpForm';
+import EventCreateForm from './components/EventCreateForm';
+import EventModifyForm from './components/EventModifyForm';
+import eventService from './services/events';
 
-import './App.css'
+import './App.css';
 
 const App = () => {
-  const [user, setUser] = useState(null)
-  const [create, setCreate] = useState(false)
-  const [modify, setModify] = useState(false)
-  const [events, setEvents] = useState([])
-  const [clickedDate, setClickedDate] = useState(null)
-  const [clickedEvent, setClickedEvent] = useState(null)
-  const [date, setDate] = useState(new Date())
-  const [signUp, setSignUp] = useState(false)
-  const [fetchInProgress, setFetchInProgress] = useState(false)
+  const [user, setUser] = useState(null);
+  const [create, setCreate] = useState(false);
+  const [modify, setModify] = useState(false);
+  const [events, setEvents] = useState([]);
+  const [clickedDate, setClickedDate] = useState(null);
+  const [clickedEvent, setClickedEvent] = useState(null);
+  const [date, setDate] = useState(new Date());
+  const [signUp, setSignUp] = useState(false);
+  const [fetchInProgress, setFetchInProgress] = useState(false);
 
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('user')
+    const loggedUserJSON = window.localStorage.getItem('user');
     if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON)
-      setUser(user)
+      const loggedUser = JSON.parse(loggedUserJSON);
+      setUser(loggedUser);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const newEvents = await eventService.getAll(user.calendarId)
+      const newEvents = await eventService.getAll(user.calendarId);
       if (newEvents) {
-        setEvents(newEvents)
+        setEvents(newEvents);
       }
-    }
+    };
     if (user) {
-      fetchEvents()
+      fetchEvents();
     }
-  }, [user])
+  }, [user]);
 
   const handleLogout = () => {
-    setUser(null)
-    setEvents([])
-    window.localStorage.removeItem('user')
-  }
+    setUser(null);
+    setEvents([]);
+    window.localStorage.removeItem('user');
+  };
 
   return (
-    <div className='main'>
-      <Navbar bg='dark' variant='dark' className='navbar-container'>
-        <Navbar.Brand>WebCalendar</Navbar.Brand> 
+    <div className="main">
+      <Navbar bg="dark" variant="dark" className="navbar-container">
+        <Navbar.Brand>WebCalendar</Navbar.Brand>
         <div>
-          {user 
-            ? <React.Fragment>
-                <Navbar.Text>
-                  <em>{user.username}</em>
-                </Navbar.Text>
-                <Button onClick={handleLogout}>Logout</Button>
-              </React.Fragment>
-            : null
-          }
+          {user ? (
+            <>
+              <Navbar.Text>
+                <em>{user.username}</em>
+              </Navbar.Text>
+              <Button onClick={handleLogout}>Logout</Button>
+            </>
+          ) : null}
           {!user &&
-            (signUp
-              ? <Button onClick={() => setSignUp(false)}>Log in</Button>
-              : <Button onClick={() => setSignUp(true)}>Sign up</Button>
-            )
-          }
+            (signUp ? (
+              <Button onClick={() => setSignUp(false)}>Log in</Button>
+            ) : (
+              <Button onClick={() => setSignUp(true)}>Sign up</Button>
+            ))}
         </div>
       </Navbar>
-      {signUp
-        ? <SignUpForm 
-            setVisible={setSignUp}
-            user={user} 
-            setUser={setUser} 
-            fetchInProgress={fetchInProgress}
-            setFetchInProgress={setFetchInProgress}
-          />
-        : <LoginForm 
-            setDate={setDate}
-            user={user} 
-            setUser={setUser} 
-            fetchInProgress={fetchInProgress}
-          />
-      }
-      {fetchInProgress
-        && <div className='spinner-container'>
-            <Spinner animation='border'>
-              <span className='sr-only'>Loading...</span>
-            </Spinner>
-          </div>
-      }
-      {user &&
-        <React.Fragment>
-          <div className='datepicker-container'>
+      {signUp ? (
+        <SignUpForm
+          setVisible={setSignUp}
+          user={user}
+          setUser={setUser}
+          fetchInProgress={fetchInProgress}
+          setFetchInProgress={setFetchInProgress}
+        />
+      ) : (
+        <LoginForm
+          setDate={setDate}
+          user={user}
+          setUser={setUser}
+          fetchInProgress={fetchInProgress}
+        />
+      )}
+      {fetchInProgress && (
+        <div className="spinner-container">
+          <Spinner animation="border">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>
+      )}
+      {user && (
+        <>
+          <div className="datepicker-container">
             <DatePicker
-              locale='en'
-              onChange={(date) => setDate(date)}
+              locale="en"
+              onChange={data => setDate(data)}
               value={date}
             />
           </div>
           <Calendar
             date={date}
-            user={user} 
-            showCreate={setCreate} 
-            showModify={setModify} 
+            user={user}
+            showCreate={setCreate}
+            showModify={setModify}
             events={events}
             setClickedDate={setClickedDate}
             setClickedEvent={setClickedEvent}
           />
-        </React.Fragment>
-      }
-      <EventCreateForm 
-        visible={create} 
-        setVisible={setCreate} 
+        </>
+      )}
+      <EventCreateForm
+        visible={create}
+        setVisible={setCreate}
         user={user}
         events={events}
         setEvents={setEvents}
         clickedDate={clickedDate}
       />
       <EventModifyForm
-        visible={modify} 
-        setVisible={setModify} 
+        visible={modify}
+        setVisible={setModify}
         user={user}
         events={events}
-        setEvents={setEvents} 
+        setEvents={setEvents}
         clickedEvent={clickedEvent}
       />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,24 +1,25 @@
-import axios from 'axios'
-const baseUrl = '/api/events'
+import axios from 'axios';
+
+const baseUrl = '/api/events';
 
 const getAll = async calendarId => {
-  const response = await axios.get(`${baseUrl}/${calendarId}`)
-  return response.data
-}
+  const response = await axios.get(`${baseUrl}/${calendarId}`);
+  return response.data;
+};
 
 const create = async info => {
-  const response = await axios.post(baseUrl, info)
-  return response.data
-}
+  const response = await axios.post(baseUrl, info);
+  return response.data;
+};
 
 const update = async (calendarId, eventId, info) => {
-  const response = await axios.put(`${baseUrl}/${calendarId}/${eventId}`, info)
-  return response.data
-}
+  const response = await axios.put(`${baseUrl}/${calendarId}/${eventId}`, info);
+  return response.data;
+};
 
 const remove = async (calendarId, eventId) => {
-  const response = await axios.delete(`${baseUrl}/${calendarId}/${eventId}`)
-  return response.data
-}
+  const response = await axios.delete(`${baseUrl}/${calendarId}/${eventId}`);
+  return response.data;
+};
 
-export default { create, getAll, update, remove }
+export default { create, getAll, update, remove };

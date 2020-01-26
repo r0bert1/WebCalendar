@@ -1,78 +1,86 @@
-import React, { useEffect, useRef } from 'react'
-import FullCalendar from '@fullcalendar/react'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction'
-import bootstrapPlugin from '@fullcalendar/bootstrap'
+import React, { useEffect, useRef } from 'react';
+import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import bootstrapPlugin from '@fullcalendar/bootstrap';
 
-import './Calendar.scss'
-import './Calendar.css'
+import './Calendar.scss';
+import './Calendar.css';
 
-const Calendar = (props) => {
-  const calendarRef = useRef()
-  const containerRef = useRef()
+const Calendar = ({
+  user,
+  date,
+  setClickedDate,
+  setClickedEvent,
+  showCreate,
+  showModify,
+  events
+}) => {
+  const calendarRef = useRef();
+  const containerRef = useRef();
 
   useEffect(() => {
-    if (props.user && props.date) {
-      handleDateChange(props.date)
+    const handleDateChange = selectedDate => {
+      const calendarApi = calendarRef.current.getApi();
+      calendarApi.gotoDate(selectedDate);
+    };
+
+    if (user && date) {
+      handleDateChange(date);
     }
-  }, [calendarRef, props.user, props.date])
-
-  useEffect(() => {
-    handleWindowResize()
-  }, [])
-
-  const handleDateChange = (date) => {
-    let calendarApi = calendarRef.current.getApi()
-    calendarApi.gotoDate(date)
-  }
+  }, [calendarRef, user, date]);
 
   const handleWindowResize = () => {
-    let calendarApi = calendarRef.current.getApi()
-    calendarApi.setOption('height', 100)
-    const container = containerRef.current
-    calendarApi.setOption('height', container.offsetHeight - 32)
-  }
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.setOption('height', 100);
+    const container = containerRef.current;
+    calendarApi.setOption('height', container.offsetHeight - 32);
+  };
 
-  const handleDateClick = (info) => {
-    props.setClickedDate(info.date)
-    props.showCreate(true)
-  }
+  useEffect(() => {
+    handleWindowResize();
+  }, []);
 
-  const handleEventClick = (info) => {
-    props.setClickedEvent({
+  const handleDateClick = info => {
+    setClickedDate(info.date);
+    showCreate(true);
+  };
+
+  const handleEventClick = info => {
+    setClickedEvent({
       id: info.event.id,
       title: info.event.title,
       start: info.event.start,
       end: info.event.end
-    })
-    props.showModify(true)
-  }
+    });
+    showModify(true);
+  };
 
   return (
-    <div className='calendar-container' ref={containerRef}>
+    <div className="calendar-container" ref={containerRef}>
       <FullCalendar
         ref={calendarRef}
         header={{
-          left:'prev',
-          center:'title',
-          right:'next'
+          left: 'prev',
+          center: 'title',
+          right: 'next'
         }}
-        columnHeaderFormat={{day: 'numeric'}}
+        columnHeaderFormat={{ day: 'numeric' }}
         firstDay={1}
-        now={props.date}
+        now={date}
         dateClick={handleDateClick}
         defaultView="timeGridWeek"
         allDaySlot={false}
-        plugins={[ timeGridPlugin, interactionPlugin, bootstrapPlugin ]}
-        themeSystem='bootstrap'
-        events={props.events}
+        plugins={[timeGridPlugin, interactionPlugin, bootstrapPlugin]}
+        themeSystem="bootstrap"
+        events={events}
         eventClick={handleEventClick}
-        eventTextColor='#FFF'
+        eventTextColor="#FFF"
         height={100}
         windowResize={handleWindowResize}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Calendar
+export default Calendar;
