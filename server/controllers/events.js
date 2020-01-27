@@ -53,12 +53,12 @@ eventsRouter.post('/', async (request, response) => {
       let newEvent = res.data;
       if (newEvent) {
         newEvent = {
-          id: event.id,
-          title: event.summary,
-          start: event.start.dateTime,
-          end: event.end.dateTime
+          id: newEvent.id,
+          title: newEvent.summary,
+          start: newEvent.start.dateTime,
+          end: newEvent.end.dateTime
         };
-        return response.status(200).send(event);
+        response.status(200).send(newEvent);
       }
     }
   );
