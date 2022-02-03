@@ -4,6 +4,6 @@ App is running at https://webcalendars.herokuapp.com/. The site can take up to 3
 
 ### Documentation
 
-[Työaikakirjanpito](https://github.com/r0bert1/calendarWebApp/blob/master/documentation/tuntikirjanpito.md)
+[Työaikakirjanpito](https://github.com/r0bert1/WebCalendar/blob/master/docs/tuntikirjanpito.md)
 
-[Käyttöohje](https://github.com/r0bert1/calendarWebApp/blob/master/documentation/kayttoohje.md)
+[Käyttöohje](https://github.com/r0bert1/WebCalendar/blob/master/docs/kayttoohje.md)
