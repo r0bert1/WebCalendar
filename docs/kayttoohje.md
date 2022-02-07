@@ -20,3 +20,5 @@ Tässä näkymässä käyttäjä voi asettaa tapahtumalle nimen sekä alkamis- j
 Tallennettua tapahtumaa voi klikata, jolloin ilmestyy ikkuna tapahtuman muokkausta varten:
 
 ![](https://github.com/r0bert1/WebCalendar/blob/master/docs/images/edit-event.png)
+
+Tässä näkymässä käyttäjä voi muokata tapahtuman tietoja tai poistaa sen.
